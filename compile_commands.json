@@ -1,0 +1,38 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-Wall",
+      "-Wextra",
+      "-Iinclude",
+      "-pipe",
+      "-O0",
+      "-g",
+      "-c",
+      "-o",
+      "obj/src/main.o",
+      "src/main.c"
+    ],
+    "directory": "/home/suleyman/project/rayflecs",
+    "file": "/home/suleyman/project/rayflecs/src/main.c",
+    "output": "/home/suleyman/project/rayflecs/obj/src/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-Wall",
+      "-Wextra",
+      "-Iinclude",
+      "-pipe",
+      "-O0",
+      "-g",
+      "-c",
+      "-o",
+      "obj/lib/flecs.o",
+      "lib/flecs.c"
+    ],
+    "directory": "/home/suleyman/project/rayflecs",
+    "file": "/home/suleyman/project/rayflecs/lib/flecs.c",
+    "output": "/home/suleyman/project/rayflecs/obj/lib/flecs.o"
+  }
+]
