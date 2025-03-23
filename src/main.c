@@ -2,14 +2,16 @@
 #include <raylib.h>
 #include <flecs.h>
 
-typedef Vector2 Position;
-typedef Vector2 Velocity;
-
 int main()
 {
     ecs_world_t *world = ecs_init();
 
-    ImportRaylibModule(world);
+    ECS_IMPORT(world, RaylibModule);
+    ecs_entity_t e = ecs_new(world);
+
+    ecs_set(world, e, Position, {10, 20});
+    ecs_set(world, e, Text, {"coucou"});
+    ecs_set(world, e, Size, {3});
 
     while (!WindowShouldClose()) {
        ecs_progress(world, GetFrameTime());
