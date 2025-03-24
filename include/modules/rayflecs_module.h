@@ -6,6 +6,7 @@
 
 
 typedef Color ClearColor;
+typedef float Circle;
 typedef Vector2 Position;
 typedef Vector2 Velocity;
 typedef Vector2 Scale;
@@ -21,10 +22,12 @@ extern ECS_COMPONENT_DECLARE(Text);
 extern ECS_COMPONENT_DECLARE(Scale);
 extern ECS_COMPONENT_DECLARE(Size);
 extern ECS_COMPONENT_DECLARE(RayFlecsTexture);
+extern ECS_COMPONENT_DECLARE(Circle);
 
 void RaylibModuleImport(ecs_world_t *world);
 void RayFlecsRegisterDrawText(ecs_world_t *world);
 void RayFlecsRegisterTexture(ecs_world_t *world);
 RayFlecsTexture LoadRayFlecsTexture(const char *path);
+void RayFlecsRegisterDrawCircleShape(ecs_world_t *world);
 
 #endif

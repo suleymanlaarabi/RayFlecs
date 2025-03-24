@@ -5,7 +5,6 @@
 #include "flecs_macro.h"
 #include <sys/types.h>
 
-
 ECS_COMPONENT_DECLARE(ClearColor);
 ECS_COMPONENT_DECLARE(Color);
 ECS_COMPONENT_DECLARE(Position);
@@ -20,7 +19,6 @@ void begindrawing_window(ecs_iter_t *it)
     BeginDrawing();
     ClearBackground(*clear_color);
 }
-
 
 void end_drawing_window()
 {
@@ -44,4 +42,5 @@ void RaylibModuleImport(ecs_world_t *world)
     ECS_SYSTEM(world, end_drawing_window, EcsPostUpdate);
     RayFlecsRegisterDrawText(world);
     RayFlecsRegisterTexture(world);
+    RayFlecsRegisterDrawCircleShape(world);
 }
