@@ -27,6 +27,12 @@ int main()
     rayflecs_set_raw_component(world, c, Color, RAYWHITE);
     rayflecs_set_raw_component(world, c, Circle, 10);
 
+    ecs_entity_t d = ecs_new(world);
+    ecs_set(world, d, Position, {400, 300});
+    rayflecs_set_raw_component(world, d, Color, RAYWHITE);
+    ecs_set(world, d, Scale, {20, 100});
+    ecs_set(world, d, RayFlecsRectangle, {});
+
     SetTargetFPS(120);
     while (!WindowShouldClose()) {
        ecs_progress(world, GetFrameTime());
