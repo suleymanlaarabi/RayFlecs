@@ -5,7 +5,7 @@
     #include <raylib.h>
 
 
-typedef struct Color ClearColor;
+typedef Color ClearColor;
 typedef Vector2 Position;
 typedef Vector2 Velocity;
 typedef Vector2 Scale;
@@ -14,6 +14,7 @@ typedef const char* Text;
 typedef Texture2D RayFlecsTexture;
 
 extern ECS_COMPONENT_DECLARE(ClearColor);
+extern ECS_COMPONENT_DECLARE(Color);
 extern ECS_COMPONENT_DECLARE(Position);
 extern ECS_COMPONENT_DECLARE(Velocity);
 extern ECS_COMPONENT_DECLARE(Text);

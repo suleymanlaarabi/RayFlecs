@@ -7,6 +7,7 @@
 
 
 ECS_COMPONENT_DECLARE(ClearColor);
+ECS_COMPONENT_DECLARE(Color);
 ECS_COMPONENT_DECLARE(Position);
 ECS_COMPONENT_DECLARE(Velocity);
 ECS_COMPONENT_DECLARE(Scale);
@@ -31,6 +32,7 @@ void RaylibModuleImport(ecs_world_t *world)
     ECS_MODULE(world, RaylibModule);
 
     ECS_COMPONENT_DEFINE(world, ClearColor);
+    ECS_COMPONENT_DEFINE(world, Color);
     ECS_COMPONENT_DEFINE(world, Velocity);
     ECS_COMPONENT_DEFINE(world, Position);
     ECS_COMPONENT_DEFINE(world, Scale);
