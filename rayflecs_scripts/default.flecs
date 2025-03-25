@@ -1,7 +1,24 @@
 using raylib.module
 
+const blue = Color: {
+    a: 255,
+    b: 255,
+    g: 0,
+    r: 0
+}
+
 MyCircle {
-    Position: {x: 100, y: 200}
-    Color: {a: 255, b: 255, g: 0, r: 0}
-    RayFlecsCircle: {diameter: 10}
+    Position: {
+        x: 100,
+        y: 200
+    }
+    $blue
+    RayFlecsCircle: {
+        diameter: 10
+    }
+    Scale: {
+        x: 100,
+        y: 100
+    }
+    RayFlecsRectangle
 }

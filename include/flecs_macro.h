@@ -6,5 +6,11 @@
       #define rayflecs_set_raw_component(world, entity, component, value) \
           component _b_##entity##_##component = value; \
           rayflecs_set_component(world, entity, component, &_b_##entity##_##component);
-
+    #define rayflect_component(world, component, ...) \
+        ecs_struct(world, { \
+            .entity = ecs_id(component), \
+            .members = { \
+                __VA_ARGS__ \
+            } \
+        });
 #endif

@@ -1,9 +1,9 @@
 
 
+#include "flecs_macro.h"
 #include "modules/rayflecs_module.h"
 #include "flecs.h"
 #include "raylib.h"
-#include <stdio.h>
 
 ECS_COMPONENT_DECLARE(RayFlecsCircle);
 ECS_COMPONENT_DECLARE(RayFlecsRectangle);
@@ -26,7 +26,6 @@ void DrawRectangleShapeSystem(ecs_iter_t *it)
     Color *colors = ecs_field(it, Color, 2);
 
     for (int i = 0; i < it->count; i++) {
-        puts("ok");
         DrawRectangle(positions[i].x, positions[i].y, scales[i].x, scales[i].y, colors[i]);
     }
 }
@@ -36,12 +35,13 @@ void RayFlecsRegisterDrawCircleShape(ecs_world_t *world)
     ECS_COMPONENT_DEFINE(world, RayFlecsCircle);
     ECS_COMPONENT_DEFINE(world, RayFlecsRectangle);
 
-    ecs_struct(world, {
-          .entity = ecs_id(RayFlecsCircle),
-          .members = {
-              { .name = "diameter", .type = ecs_id(ecs_f32_t) }
-          }
+    ecs_primitive(world, {
+        .entity = ecs_id(RayFlecsRectangle),
+        .kind = EcsPrimitiveType
     });
+    rayflect_component(world, RayFlecsCircle,
+        { .name = "diameter", .type = ecs_id(ecs_f32_t) }
+    );
 
     ECS_SYSTEM(world, DrawCircleShapeSystem, EcsOnUpdate, [in] Position, RayFlecsCircle, Color);
     ECS_SYSTEM(

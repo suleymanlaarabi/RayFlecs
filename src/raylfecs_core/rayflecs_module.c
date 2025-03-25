@@ -36,23 +36,22 @@ void RaylibModuleImport(ecs_world_t *world)
     ECS_COMPONENT_DEFINE(world, Scale);
     ECS_COMPONENT_DEFINE(world, Size);
 
-    ecs_struct(world, {
-          .entity = ecs_id(Color),
-          .members = {
-              { .name = "r", .type = ecs_id(ecs_u8_t) },
-              { .name = "g", .type = ecs_id(ecs_u8_t) },
-              { .name = "b", .type = ecs_id(ecs_u8_t) },
-              { .name = "a", .type = ecs_id(ecs_u8_t) }
-          }
-    });
 
-    ecs_struct(world, {
-          .entity = ecs_id(Position),
-          .members = {
-              { .name = "x", .type = ecs_id(ecs_f32_t) },
-              { .name = "y", .type = ecs_id(ecs_f32_t) }
-          }
-    });
+    rayflect_component(world, Scale,
+        { .name = "x", .type = ecs_id(ecs_f32_t) },
+        { .name = "y", .type = ecs_id(ecs_f32_t) },
+    );
+    rayflect_component(world, Color,
+        { .name = "r", .type = ecs_id(ecs_u8_t) },
+        { .name = "g", .type = ecs_id(ecs_u8_t) },
+        { .name = "b", .type = ecs_id(ecs_u8_t) },
+        { .name = "a", .type = ecs_id(ecs_u8_t) }
+    );
+
+    rayflect_component(world, Position,
+        { .name = "x", .type = ecs_id(ecs_f32_t) },
+        { .name = "y", .type = ecs_id(ecs_f32_t) }
+    );
 
     rayflecs_set_singleton(world, ClearColor, BLACK);
     InitWindow(1920, 1080, "game");
