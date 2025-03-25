@@ -1,0 +1,7 @@
+using raylib.module
+
+MyCircle {
+    Position: {x: 100, y: 200}
+    Color: {a: 255, b: 255, g: 0, r: 0}
+    RayFlecsCircle: {diameter: 10}
+}
