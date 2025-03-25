@@ -4,7 +4,6 @@
     #include "flecs.h"
     #include <raylib.h>
 
-
 typedef Color ClearColor;
 typedef struct RayFlecsCircle { float diameter; } RayFlecsCircle;
 typedef Vector2 Position;
@@ -26,10 +25,12 @@ extern ECS_COMPONENT_DECLARE(Size);
 extern ECS_COMPONENT_DECLARE(RayFlecsTexture);
 extern ECS_COMPONENT_DECLARE(RayFlecsCircle);
 
-void RaylibModuleImport(ecs_world_t *world);
+void RayflecsModuleImport(ecs_world_t *world);
 void RayFlecsRegisterDrawText(ecs_world_t *world);
 void RayFlecsRegisterTexture(ecs_world_t *world);
 RayFlecsTexture LoadRayFlecsTexture(const char *path);
 void RayFlecsRegisterDrawCircleShape(ecs_world_t *world);
+
+void ImportRayflecsReflect(ecs_world_t *world);
 
 #endif

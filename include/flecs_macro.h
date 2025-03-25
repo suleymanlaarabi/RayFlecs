@@ -13,4 +13,8 @@
                 __VA_ARGS__ \
             } \
         });
+    #define rayflect_field(fname, ftype) { .name = #fname, .type = ecs_id(ecs_##ftype##_t) }
+    #define rayflect_primitive(world, component, type) \
+        ecs_primitive(world, { .entity = ecs_id(component), .kind = type });
+
 #endif

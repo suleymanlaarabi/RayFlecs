@@ -1,4 +1,4 @@
-using raylib.module
+using rayflecs.module
 
 const blue = Color: {
     a: 255,
@@ -7,18 +7,20 @@ const blue = Color: {
     r: 0
 }
 
-MyCircle {
-    Position: {
-        x: 100,
-        y: 200
-    }
-    $blue
-    RayFlecsCircle: {
-        diameter: 10
-    }
-    Scale: {
-        x: 100,
-        y: 100
-    }
-    RayFlecsRectangle
+prefab Circle {
+  Position: {
+    x: 100,
+    y: 200
+  }
+  RayFlecsCircle: {
+    diameter: 40
+  }
+}
+
+MyCircle : Circle {
+  $blue
+  Position: {
+    x :400,
+    y: 100
+  }
 }

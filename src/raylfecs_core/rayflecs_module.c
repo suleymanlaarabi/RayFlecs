@@ -25,9 +25,9 @@ void end_drawing_window()
     EndDrawing();
 }
 
-void RaylibModuleImport(ecs_world_t *world)
+void RayflecsModuleImport(ecs_world_t *world)
 {
-    ECS_MODULE(world, RaylibModule);
+    ECS_MODULE(world, RayflecsModule);
 
     ECS_COMPONENT_DEFINE(world, ClearColor);
     ECS_COMPONENT_DEFINE(world, Color);
@@ -36,28 +36,15 @@ void RaylibModuleImport(ecs_world_t *world)
     ECS_COMPONENT_DEFINE(world, Scale);
     ECS_COMPONENT_DEFINE(world, Size);
 
+    RayFlecsRegisterDrawText(world);
+    RayFlecsRegisterTexture(world);
+    RayFlecsRegisterDrawCircleShape(world);
 
-    rayflect_component(world, Scale,
-        { .name = "x", .type = ecs_id(ecs_f32_t) },
-        { .name = "y", .type = ecs_id(ecs_f32_t) },
-    );
-    rayflect_component(world, Color,
-        { .name = "r", .type = ecs_id(ecs_u8_t) },
-        { .name = "g", .type = ecs_id(ecs_u8_t) },
-        { .name = "b", .type = ecs_id(ecs_u8_t) },
-        { .name = "a", .type = ecs_id(ecs_u8_t) }
-    );
-
-    rayflect_component(world, Position,
-        { .name = "x", .type = ecs_id(ecs_f32_t) },
-        { .name = "y", .type = ecs_id(ecs_f32_t) }
-    );
+    ImportRayflecsReflect(world);
 
     rayflecs_set_singleton(world, ClearColor, BLACK);
     InitWindow(1920, 1080, "game");
     ECS_SYSTEM(world, begindrawing_window, EcsPreUpdate,[in] ClearColor($));
     ECS_SYSTEM(world, end_drawing_window, EcsPostUpdate);
-    RayFlecsRegisterDrawText(world);
-    RayFlecsRegisterTexture(world);
-    RayFlecsRegisterDrawCircleShape(world);
+
 }

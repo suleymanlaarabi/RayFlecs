@@ -1,6 +1,5 @@
 
 
-#include "flecs_macro.h"
 #include "modules/rayflecs_module.h"
 #include "flecs.h"
 #include "raylib.h"
@@ -34,14 +33,6 @@ void RayFlecsRegisterDrawCircleShape(ecs_world_t *world)
 {
     ECS_COMPONENT_DEFINE(world, RayFlecsCircle);
     ECS_COMPONENT_DEFINE(world, RayFlecsRectangle);
-
-    ecs_primitive(world, {
-        .entity = ecs_id(RayFlecsRectangle),
-        .kind = EcsPrimitiveType
-    });
-    rayflect_component(world, RayFlecsCircle,
-        { .name = "diameter", .type = ecs_id(ecs_f32_t) }
-    );
 
     ECS_SYSTEM(world, DrawCircleShapeSystem, EcsOnUpdate, [in] Position, RayFlecsCircle, Color);
     ECS_SYSTEM(
