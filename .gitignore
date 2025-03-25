@@ -2,3 +2,5 @@ rayflecs
 .cache/
 obj/
 *.o
+include/flecs.h
+lib/flecs.c
