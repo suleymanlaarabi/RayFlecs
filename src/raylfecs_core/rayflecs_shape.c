@@ -13,9 +13,8 @@ void DrawCircleShapeSystem(ecs_iter_t *it)
     RayFlecsCircle *circles = ecs_field(it, RayFlecsCircle, 1);
     Color *colors = ecs_field(it, Color, 2);
 
-    for (int i = 0; i < it->count; i++) {
-        DrawCircle(positions[i].x, positions[i].y, circles[i].diameter, colors[i]);
-    }
+    for (int i = 0; i < it->count; i++)
+        DrawCircleV(positions[i], circles[i].diameter, colors[i]);
 }
 
 void DrawRectangleShapeSystem(ecs_iter_t *it)
@@ -25,7 +24,7 @@ void DrawRectangleShapeSystem(ecs_iter_t *it)
     Color *colors = ecs_field(it, Color, 2);
 
     for (int i = 0; i < it->count; i++) {
-        DrawRectangle(positions[i].x, positions[i].y, scales[i].x, scales[i].y, colors[i]);
+        DrawRectangleV(positions[i], scales[i], colors[i]);
     }
 }
 

@@ -31,6 +31,6 @@ void RayFlecsRegisterTexture(ecs_world_t *world);
 RayFlecsTexture LoadRayFlecsTexture(const char *path);
 void RayFlecsRegisterDrawCircleShape(ecs_world_t *world);
 
-void ImportRayflecsReflect(ecs_world_t *world);
+void RayflecsMetaImport(ecs_world_t *world);
 
 #endif

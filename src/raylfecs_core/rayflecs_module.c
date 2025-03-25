@@ -40,8 +40,6 @@ void RayflecsModuleImport(ecs_world_t *world)
     RayFlecsRegisterTexture(world);
     RayFlecsRegisterDrawCircleShape(world);
 
-    ImportRayflecsReflect(world);
-
     rayflecs_set_singleton(world, ClearColor, BLACK);
     InitWindow(1920, 1080, "game");
     ECS_SYSTEM(world, begindrawing_window, EcsPreUpdate,[in] ClearColor($));

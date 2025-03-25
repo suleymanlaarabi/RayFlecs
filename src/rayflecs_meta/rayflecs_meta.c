@@ -1,15 +1,10 @@
 
-#include "modules/rayflecs_module.h"
-#include "flecs_macro.h"
 #include "flecs.h"
+#include "flecs_macro.h"
 
-void ImportRayflecsReflect(ecs_world_t *world)
+void RayflecsMetaImport(ecs_world_t *world)
 {
     rayflect_component(world, Scale,
-        rayflect_field(x, f32),
-        rayflect_field(y, f32),
-    );
-    rayflect_component(world, Velocity,
         rayflect_field(x, f32),
         rayflect_field(y, f32),
     );

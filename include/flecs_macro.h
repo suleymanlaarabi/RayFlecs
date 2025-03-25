@@ -1,5 +1,6 @@
 #ifndef FLEC_MACRO_H
     #define FLEC_MACRO_H
+    #include "modules/rayflecs_module.h"
     #define rayflecs_set_singleton(world, component, value) ecs_set_id(world, ecs_id(component), ecs_id(component), sizeof(component), &(value));
     #define rayflecs_set_component(world, entity, component, value)    \
       ecs_set_id(world, entity, ecs_id(component), sizeof(component), value)
@@ -15,6 +16,6 @@
         });
     #define rayflect_field(fname, ftype) { .name = #fname, .type = ecs_id(ecs_##ftype##_t) }
     #define rayflect_primitive(world, component, type) \
-        ecs_primitive(world, { .entity = ecs_id(component), .kind = type });
+        ecs_primitive(world, { .entity = ecs_id(component), .kind = (ecs_primitive_kind_t) type });
 
 #endif

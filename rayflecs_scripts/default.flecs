@@ -1,5 +1,7 @@
 using rayflecs.module
 
+@Include "./color.flecs";
+
 const blue = Color: {
     a: 255,
     b: 255,

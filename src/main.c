@@ -23,6 +23,8 @@ int main()
     ecs_world_t *world = ecs_init();
 
     ECS_IMPORT(world, RayflecsModule);
+    RayflecsMetaImport(world);
+
     ECS_IMPORT(world, FlecsStats);
     ECS_IMPORT(world, FlecsScript);
     ecs_singleton_set(world, EcsRest, {0});
