@@ -1,7 +1,5 @@
 using rayflecs.module
 
-@Include "./color.flecs";
-
 const blue = Color: {
     a: 255,
     b: 255,
@@ -19,10 +17,14 @@ prefab Circle {
   }
 }
 
-MyCircle : Circle {
-  $blue
-  Position: {
-    x :400,
-    y: 100
-  }
+for y in 1..11 {
+    for x in 1..19 {
+        _ : Circle {
+            $blue
+            Position: {
+                x: 100 * x,
+                y: 100 * y
+            }
+        }
+    }
 }

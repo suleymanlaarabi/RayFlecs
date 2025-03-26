@@ -34,34 +34,13 @@ int main()
     // ecs_set(world, b, Size, {10});
     // rayflecs_set_raw_component(world, b, RayFlecsTexture, LoadTexture("assets/duck.png"));
 
-
-    // ecs_entity_t d = ecs_new(world);
-    // ecs_set(world, d, Position, {400, 300});
-    // rayflecs_set_raw_component(world, d, Color, RAYWHITE);
-    // ecs_set(world, d, Scale, {20, 100});
-    // ecs_set(world, d, RayFlecsRectangle, {});
-
-
-    // ecs_entity_t e = ecs_new(world);
-    // ecs_set(world, e, Position, {10, 20});
-    // ecs_set(world, e, Text, {"coucou"});
-    // rayflecs_set_raw_component(world, e, Color, BLUE);
-    // ecs_set(world, e, Size, {3});
-    SetTargetFPS(60);
-
-
-    // ecs_entity_t c = ecs_new(world);
-    // ecs_set(world, c, Position, {200, 100});
-    // rayflecs_set_raw_component(world, c, Color, RAYWHITE);
-    // ecs_set(world, c, RayFlecsCircle, {.diameter = 10});
-
     const char *code = file_to_string("./rayflecs_scripts/default.flecs");
 
-    ecs_script(world, {
-        .code = code,
-        .filename = "default.flecs"
-    });
+    ecs_script_t *script = ecs_script_parse(world, "default.flecs", code, NULL);
 
+    ecs_script_eval(script, NULL);
+
+    SetTargetFPS(60);
     while (!WindowShouldClose()) {
        ecs_progress(world, GetFrameTime());
     }

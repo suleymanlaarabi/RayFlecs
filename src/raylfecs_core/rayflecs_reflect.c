@@ -29,6 +29,7 @@ void ImportRayflecsReflect(ecs_world_t *world)
         rayflect_field(x, f32),
         rayflect_field(y, f32)
     );
+    rayflect_primitive(world, Size, ecs_id(ecs_f32_t));
     rayflect_primitive(world, RayFlecsRectangle, EcsPrimitiveType);
     rayflect_component(world, RayFlecsCircle,
         rayflect_field(diameter, f32)

@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -Iinclude -pipe -O0 -g
+CFLAGS = -Wall -Wextra -Iinclude -pipe -O3 -march=native -flto -ffast-math
 CFLAGS += -lraylib -lm -ldl -lpthread -lGL -lrt
 SRC_DIR = src
 LIB_DIR = lib
