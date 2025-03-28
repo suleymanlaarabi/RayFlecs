@@ -30,19 +30,19 @@ int main()
     ECS_IMPORT(world, FlecsScript);
     ecs_singleton_set(world, EcsRest, {0});
 
-    ecs_entity_t b = ecs_new(world);
-    ecs_set(world, b, Triangle, {
-        {100, 100},
-        {100, 200},
-        {200, 150}
-    });
-    rayflecs_set_raw_component(world, b, Color, BLUE);
+    // ecs_entity_t b = ecs_new(world);
+    // ecs_set(world, b, Triangle, {
+    //     {100, 100},
+    //     {100, 200},
+    //     {200, 150}
+    // });
+    // rayflecs_set_raw_component(world, b, Color, BLUE);
 
     const char *code = file_to_string("./rayflecs_scripts/default.flecs");
 
     ecs_script_t *script = ecs_script_parse(world, "default.flecs", code, NULL);
 
-    //ecs_script_eval(script, NULL);
+    ecs_script_eval(script, NULL);
 
     SetTargetFPS(60);
     while (!WindowShouldClose()) {

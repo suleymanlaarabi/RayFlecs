@@ -28,4 +28,9 @@ void RayflecsMetaImport(ecs_world_t *world)
     rayflect_component(world, RayFlecsCircle,
         rayflect_field(diameter, f32)
     );
+    rayflect_component(world, Triangle,
+        rayflect_struct(p1, Position),
+        rayflect_struct(p2, Position),
+        rayflect_struct(p3, Position)
+    );
 }

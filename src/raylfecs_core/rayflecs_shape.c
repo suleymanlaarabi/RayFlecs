@@ -37,7 +37,6 @@ void DrawTriangleShapeSystem(ecs_iter_t *it)
     Color *colors = ecs_field(it, Color, 1);
 
     for (int i = 0; i < it->count; i++) {
-        puts("ok");
         DrawTriangle(triangle[i].p1, triangle[i].p2, triangle[i].p3, colors[i]);
     }
 }

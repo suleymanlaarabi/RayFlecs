@@ -17,14 +17,11 @@ prefab Circle {
   }
 }
 
-for y in 1..11 {
-    for x in 1..19 {
-        _ : Circle {
-            $blue
-            Position: {
-                x: 100 * x,
-                y: 100 * y
-            }
-        }
+_ {
+    $blue
+    Triangle: {
+        p1: { x: 100, y: 100 },
+        p2: { x: 100, y: 200 },
+        p3: { x: 200, y: 150 }
     }
 }
